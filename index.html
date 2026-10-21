@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mueblería El Retablo | Muebles artesanales en Cd. Cuauhtémoc</title>
+  <meta name="description" content="Mueblería El Retablo: negocio familiar con más de 35 años fabricando muebles artesanales de madera en Cd. Cuauhtémoc, Chihuahua. Envíos a toda la República.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- ===== Encabezado ===== -->
+  <header class="header" id="inicio">
+    <nav class="nav contenedor">
+      <a href="#inicio" class="marca" aria-label="El Retablo, inicio">
+        <!-- LOGO: cuando tengan logo, reemplazar este bloque por <img src="img/logo.png" alt="El Retablo"> -->
+        <span class="marca-icono" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 34V14L20 5l14 9v20" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M13 34V20h14v14M13 26h14" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+        </span>
+        <span class="marca-texto">El Retablo<small>Mueblería</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#contacto" class="btn btn-chico">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== Portada ===== -->
+  <section class="hero">
+    <!-- VIDEO DRON (después): reemplazar el div .hero-fondo por:
+         <video class="hero-fondo" src="img/dron.mp4" autoplay muted loop playsinline></video> -->
+    <div class="hero-fondo foto" data-label="FOTO o VIDEO DE DRON: vista general del local / taller (horizontal, grande)">
+      <img src="img/portada.jpg" alt="">
+    </div>
+    <div class="hero-contenido contenedor">
+      <p class="eyebrow">Hecho a mano en Cd. Cuauhtémoc, Chihuahua</p>
+      <h1>Muebles con historia,<br>hechos para durar.</h1>
+      <p class="hero-texto">Más de 35 años trabajando la madera con el mismo cuidado de siempre. Cada pieza tiene su propio proceso, detallado y único.</p>
+      <div class="hero-botones">
+        <a href="#catalogo" class="btn">Ver catálogo</a>
+        <a href="https://wa.me/526251528577?text=Hola%2C%20me%20interesa%20cotizar%20un%20mueble" class="btn btn-claro" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Franja de valores ===== -->
+  <section class="franja">
+    <div class="contenedor franja-grid">
+      <div><strong>35+</strong><span>años de experiencia</span></div>
+      <div><strong>100%</strong><span>trabajo artesanal</span></div>
+      <div><strong>Madera</strong><span>de primera calidad</span></div>
+      <div><strong>Envíos</strong><span>a toda la República</span></div>
+    </div>
+  </section>
+
+  <!-- ===== Nosotros ===== -->
+  <section class="seccion" id="nosotros">
+    <div class="contenedor nosotros-grid">
+      <div class="nosotros-fotos">
+        <div class="foto foto-alta" data-label="FOTO: la familia / fundadores en el taller">
+          <img src="img/familia.jpg" alt="La familia de El Retablo en su taller">
+        </div>
+        <div class="foto foto-chica" data-label="FOTO: manos trabajando la madera (detalle)">
+          <img src="img/manos.jpg" alt="Detalle del trabajo artesanal">
+        </div>
+      </div>
+      <div class="nosotros-texto">
+        <p class="eyebrow">Acerca de nosotros</p>
+        <h2>Un negocio familiar, una tradición de más de 35 años</h2>
+        <p>En <strong>El Retablo</strong> somos una familia que lleva más de 35 años dedicada a lo que más nos gusta: crear muebles de madera que acompañen a los hogares por generaciones.</p>
+        <p>Nuestros productos se distinguen por la <strong>calidad de los materiales</strong> y por un <strong>proceso detallado y único para cada pieza</strong>. No hacemos muebles en serie: cada uno pasa por nuestras manos con la atención que merece.</p>
+        <p>Desde Cd. Cuauhtémoc, Chihuahua, <strong>enviamos a toda la República Mexicana</strong>.</p>
+        <a href="#contacto" class="btn">Visítanos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Catálogo ===== -->
+  <section class="seccion seccion-oscura" id="catalogo">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <p class="eyebrow">Catálogo</p>
+        <h2>Nuestros muebles</h2>
+        <p>Una muestra de lo que hacemos. También fabricamos sobre medida: cuéntanos tu idea.</p>
+      </div>
+      <div class="filtros" role="tablist" aria-label="Filtrar catálogo"></div>
+      <div class="catalogo-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== Proceso ===== -->
+  <section class="seccion" id="proceso">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>Un proceso único para cada pieza</h2>
+      </div>
+      <div class="proceso-grid">
+        <article class="paso">
+          <span class="paso-num">01</span>
+          <h3>Selección de madera</h3>
+          <p>Elegimos materiales de calidad, revisando veta, humedad y resistencia.</p>
+        </article>
+        <article class="paso">
+          <span class="paso-num">02</span>
+          <h3>Diseño</h3>
+          <p>Combinamos lo rústico con líneas modernas, o trabajamos sobre tu propio diseño.</p>
+        </article>
+        <article class="paso">
+          <span class="paso-num">03</span>
+          <h3>Trabajo artesanal</h3>
+          <p>Corte, ensamble y tallado a mano, con el detalle que solo da la experiencia.</p>
+        </article>
+        <article class="paso">
+          <span class="paso-num">04</span>
+          <h3>Acabado y envío</h3>
+          <p>Protegemos cada pieza y la enviamos a cualquier parte de México.</p>
+        </article>
+      </div>
+      <div class="galeria">
+        <div class="foto" data-label="FOTO: madera en bruto / almacén"><img src="img/taller-1.jpg" alt="Madera en el taller"></div>
+        <div class="foto" data-label="FOTO: taller trabajando"><img src="img/taller-2.jpg" alt="Taller de El Retablo"></div>
+        <div class="foto" data-label="FOTO: aplicando acabado"><img src="img/taller-3.jpg" alt="Acabado de un mueble"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contacto ===== -->
+  <section class="seccion seccion-crema" id="contacto">
+    <div class="contenedor contacto-grid">
+      <div>
+        <p class="eyebrow">Contacto</p>
+        <h2>Visítanos o escríbenos</h2>
+        <ul class="datos">
+          <li>
+            <span class="datos-titulo">WhatsApp / Teléfono</span>
+            <a href="https://wa.me/526251528577" target="_blank" rel="noopener">625 152 8577</a>
+          </li>
+          <!-- CORREO: cuando lo tengan, escribirlo en data-correo (ej. data-correo="contacto@elretablo.mx") -->
+          <li class="dato-correo" data-correo="">
+            <span class="datos-titulo">Correo</span>
+            <a href="#"></a>
+          </li>
+          <li>
+            <span class="datos-titulo">Dirección</span>
+            <span>Calle Ecuador #109, Col. CTM<br>Cd. Cuauhtémoc, Chihuahua, México</span>
+          </li>
+          <li>
+            <span class="datos-titulo">Envíos</span>
+            <span>A toda la República Mexicana</span>
+          </li>
+        </ul>
+        <div class="foto foto-fachada" data-label="FOTO: fachada del local (para que nos reconozcan al llegar)">
+          <img src="img/fachada.jpg" alt="Fachada de Mueblería El Retablo">
+        </div>
+      </div>
+
+      <div>
+        <form class="formulario" id="formulario">
+          <h3>Pide tu cotización</h3>
+          <p>Te respondemos por WhatsApp.</p>
+          <label>Nombre<input type="text" name="nombre" required></label>
+          <label>Ciudad<input type="text" name="ciudad" placeholder="Para calcular el envío"></label>
+          <label>¿Qué mueble te interesa?<textarea name="mensaje" rows="4" required></textarea></label>
+          <button type="submit" class="btn">Enviar por WhatsApp</button>
+        </form>
+        <div class="mapa">
+          <iframe title="Ubicación de El Retablo" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Calle%20Ecuador%20109%2C%20CTM%2C%20Cuauht%C3%A9moc%2C%20Chihuahua&output=embed"></iframe>
+          <a href="https://maps.app.goo.gl/2TUzoDUrpARqYPvF6" target="_blank" rel="noopener" class="btn btn-chico">Abrir en Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pie ===== -->
+  <footer class="footer">
+    <div class="contenedor footer-grid">
+      <div>
+        <span class="marca-texto">El Retablo<small>Mueblería</small></span>
+        <p>Muebles artesanales desde hace más de 35 años.</p>
+      </div>
+      <p>© <span id="anio"></span> Mueblería El Retablo · Cd. Cuauhtémoc, Chihuahua</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-flotante" href="https://wa.me/526251528577" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.5 4.9 2 .9 2.8.9 3.8.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.7-.6z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
