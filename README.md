@@ -37,3 +37,7 @@ Se edita en `js/main.js`, en la lista `PRODUCTOS` (nombre, categoría, foto y de
 ## Publicar gratis (GitHub Pages)
 
 En el repo: **Settings → Pages → Branch: main / root → Save**. El sitio quedará en `https://cuantek.github.io/Retablo/`.
+
+## Al hacer cambios en CSS o JS
+
+Sube el número de versión en `index.html` (`estilos.css?v=3` y `main.js?v=3` → `?v=4`) para que los celulares descarguen la versión nueva y no usen la guardada.
