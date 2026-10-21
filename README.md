@@ -15,7 +15,7 @@ Las fotos se colocan en la carpeta `img/` con **estos nombres exactos**. Mientra
 | `img/taller-2.jpg` | Taller trabajando |
 | `img/taller-3.jpg` | Aplicando acabado |
 | `img/fachada.jpg` | Fachada del local |
-| `img/catalogo/*.jpg` | Muebles del catálogo (nombres en `js/main.js`, lista `PRODUCTOS`) |
+| `img/catalogo/*.jpg` | Productos del catálogo (nombres en `js/main.js`, lista `PRODUCTOS`). Usar nombres sin espacios ni acentos, ej. `mesa-roble.jpg` |
 
 ### Cómo subir fotos desde GitHub (sin instalar nada)
 

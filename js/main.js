@@ -3,17 +3,16 @@ const WHATSAPP = "526251528577";
 
 // ===== Catálogo =====
 // Para agregar o cambiar productos edita esta lista.
-// "foto" es el nombre del archivo dentro de img/catalogo/
+// "fotos" son los archivos dentro de img/catalogo/ (si hay varias, se cambian con clic)
 const PRODUCTOS = [
-  { nombre: "Comedor rústico", categoria: "Comedores", foto: "comedor-1.jpg", descripcion: "Mesa de madera maciza con sillas a juego. Ideal para reuniones familiares." },
-  { nombre: "Comedor moderno", categoria: "Comedores", foto: "comedor-2.jpg", descripcion: "Líneas limpias con el calor de la madera natural." },
-  { nombre: "Sala artesanal", categoria: "Salas", foto: "sala-1.jpg", descripcion: "Estructura de madera con cojines cómodos y acabado a mano." },
-  { nombre: "Mesa de centro", categoria: "Salas", foto: "mesa-centro.jpg", descripcion: "Pieza única que resalta la veta natural de la madera." },
-  { nombre: "Cabecera tallada", categoria: "Recámaras", foto: "cabecera.jpg", descripcion: "Diseño rústico con detalles tallados." },
-  { nombre: "Cómoda / buró", categoria: "Recámaras", foto: "comoda.jpg", descripcion: "Cajones amplios, herrajes resistentes y acabado protector." },
-  { nombre: "Alacena / trinchador", categoria: "Cocina", foto: "alacena.jpg", descripcion: "Espacio para guardar con estilo tradicional." },
-  { nombre: "Barra o isla", categoria: "Cocina", foto: "barra.jpg", descripcion: "Hecha a la medida de tu espacio." },
-  { nombre: "Proyecto sobre medida", categoria: "Sobre medida", foto: "medida.jpg", descripcion: "¿Tienes una idea? La diseñamos y fabricamos contigo." },
+  { nombre: "Baúl grande", categoria: "Baúles", fotos: ["baul-1.jpg", "baul-2.jpg"], descripcion: "Baúl de madera con acabado envejecido, herrajes y base de metal. Amplio espacio para guardar." },
+  { nombre: "Panera", categoria: "Cocina", fotos: ["panera-1.jpg", "panera-2.jpg"], descripcion: "Panera con puerta de persiana y repisa superior para especieros." },
+  { nombre: "Juego de cocina", categoria: "Cocina", fotos: ["juego-cocina.jpg"], descripcion: "Charola, tabla para picar y rodillo de madera." },
+  { nombre: "Porta biblia", categoria: "Porta biblias", fotos: ["porta-biblia-1.jpg", "porta-biblia-4.jpg"], descripcion: "Atril con cajón, disponible en acabado envejecido o natural." },
+  { nombre: "Cuadro marco azul", categoria: "Cuadros y marcos", fotos: ["cuadro-azul.jpg"], descripcion: "Marco rústico doble con acabado desgastado en azul y natural." },
+  { nombre: "Cuadro marco nogal", categoria: "Cuadros y marcos", fotos: ["cuadro-nogal.jpg"], descripcion: "Marco rústico doble en tono nogal y natural." },
+  { nombre: "Portarretratos", categoria: "Cuadros y marcos", fotos: ["portarretratos.jpg"], descripcion: "Portarretratos de madera en varios tamaños y acabados." },
+  { nombre: "Muebles sobre medida", categoria: "Sobre medida", fotos: ["medida.jpg"], descripcion: "¿Tienes una idea? La diseñamos y fabricamos contigo." },
 ];
 
 const grid = document.querySelector(".catalogo-grid");
@@ -28,8 +27,10 @@ function pintarCatalogo(categoria) {
   const lista = categoria === "Todos" ? PRODUCTOS : PRODUCTOS.filter(p => p.categoria === categoria);
   grid.innerHTML = lista.map(p => `
     <article class="producto">
-      <div class="foto" data-label="FOTO: ${p.nombre} (img/catalogo/${p.foto})">
-        <img src="img/catalogo/${p.foto}" alt="${p.nombre}" loading="lazy">
+      <div class="foto" data-label="FOTO: ${p.nombre} (img/catalogo/${p.fotos[0]})"
+           data-fotos="${p.fotos.join(",")}" data-i="0">
+        <img src="img/catalogo/${p.fotos[0]}" alt="${p.nombre}" loading="lazy">
+        ${p.fotos.length > 1 ? `<span class="foto-contador">1 / ${p.fotos.length}</span>` : ""}
       </div>
       <div class="producto-info">
         <span class="producto-cat">${p.categoria}</span>
@@ -42,7 +43,19 @@ function pintarCatalogo(categoria) {
   prepararFotos(grid);
 }
 
-filtros.innerHTML = categorias.map((c, i) =>
+// Clic en la foto de un producto: pasa a la siguiente
+grid.addEventListener("click", e => {
+  const caja = e.target.closest(".foto[data-fotos]");
+  if (!caja) return;
+  const fotos = caja.dataset.fotos.split(",");
+  if (fotos.length < 2) return;
+  const i = (Number(caja.dataset.i) + 1) % fotos.length;
+  caja.dataset.i = i;
+  caja.querySelector("img").src = `img/catalogo/${fotos[i]}`;
+  caja.querySelector(".foto-contador").textContent = `${i + 1} / ${fotos.length}`;
+});
+
+filtros.innerHTML =categorias.map((c, i) =>
   `<button class="filtro${i === 0 ? " activo" : ""}" data-cat="${c}">${c}</button>`).join("");
 filtros.addEventListener("click", e => {
   const boton = e.target.closest(".filtro");

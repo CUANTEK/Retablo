@@ -157,6 +157,12 @@ h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
 }
 .producto:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.35); }
 .producto .foto { aspect-ratio: 4 / 3; border-radius: 0; }
+.producto .foto[data-fotos*=","] { cursor: pointer; }
+.foto-contador {
+  position: absolute; right: 10px; bottom: 10px;
+  background: rgba(43,29,20,.75); color: var(--crema);
+  font-size: .75rem; padding: 3px 10px; border-radius: 999px;
+}
 .producto-info { padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1; }
 .producto-cat { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--caramelo); font-weight: 600; }
 .producto h3 { font-size: 1.3rem; margin: .3em 0 .4em; }
