@@ -12,7 +12,6 @@ const PRODUCTOS = [
   { nombre: "Cuadro marco azul", categoria: "Cuadros y marcos", fotos: ["cuadro-azul.jpg"], descripcion: "Marco rústico doble con acabado desgastado en azul y natural." },
   { nombre: "Cuadro marco nogal", categoria: "Cuadros y marcos", fotos: ["cuadro-nogal.jpg"], descripcion: "Marco rústico doble en tono nogal y natural." },
   { nombre: "Portarretratos", categoria: "Cuadros y marcos", fotos: ["portarretratos.jpg"], descripcion: "Portarretratos de madera en varios tamaños y acabados." },
-  { nombre: "Muebles sobre medida", categoria: "Sobre medida", fotos: ["medida.jpg"], descripcion: "¿Tienes una idea? La diseñamos y fabricamos contigo." },
 ];
 
 const grid = document.querySelector(".catalogo-grid");
