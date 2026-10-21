@@ -27,9 +27,9 @@ function pintarCatalogo(categoria) {
   grid.innerHTML = lista.map(p => `
     <article class="producto">
       <div class="foto" data-label="FOTO: ${p.nombre} (img/catalogo/${p.fotos[0]})"
-           data-fotos="${p.fotos.join(",")}" data-i="0">
+           data-fotos="${p.fotos.join(",")}" data-nombre="${p.nombre}">
         <img src="img/catalogo/${p.fotos[0]}" alt="${p.nombre}" loading="lazy">
-        ${p.fotos.length > 1 ? `<span class="foto-contador">1 / ${p.fotos.length}</span>` : ""}
+        ${p.fotos.length > 1 ? `<span class="foto-contador">${p.fotos.length} fotos</span>` : ""}
       </div>
       <div class="producto-info">
         <span class="producto-cat">${p.categoria}</span>
@@ -42,16 +42,54 @@ function pintarCatalogo(categoria) {
   prepararFotos(grid);
 }
 
-// Clic en la foto de un producto: pasa a la siguiente
+// ===== Visor de fotos en grande =====
+const visor = document.getElementById("visor");
+const visorImg = visor.querySelector(".visor-img");
+const visorTitulo = visor.querySelector(".visor-titulo");
+const visorContador = visor.querySelector(".visor-contador");
+let visorFotos = [], visorI = 0;
+
+function mostrarFoto(i) {
+  visorI = (i + visorFotos.length) % visorFotos.length;
+  visorImg.src = `img/catalogo/${visorFotos[visorI]}`;
+  visorContador.textContent = visorFotos.length > 1 ? `${visorI + 1} / ${visorFotos.length}` : "";
+}
+function abrirVisor(fotos, nombre) {
+  visorFotos = fotos;
+  visorTitulo.textContent = nombre;
+  visor.classList.toggle("una-foto", fotos.length < 2);
+  mostrarFoto(0);
+  visor.hidden = false;
+  document.body.style.overflow = "hidden";
+}
+function cerrarVisor() {
+  visor.hidden = true;
+  document.body.style.overflow = "";
+}
+
 grid.addEventListener("click", e => {
   const caja = e.target.closest(".foto[data-fotos]");
-  if (!caja) return;
-  const fotos = caja.dataset.fotos.split(",");
-  if (fotos.length < 2) return;
-  const i = (Number(caja.dataset.i) + 1) % fotos.length;
-  caja.dataset.i = i;
-  caja.querySelector("img").src = `img/catalogo/${fotos[i]}`;
-  caja.querySelector(".foto-contador").textContent = `${i + 1} / ${fotos.length}`;
+  if (caja && !caja.classList.contains("vacia")) abrirVisor(caja.dataset.fotos.split(","), caja.dataset.nombre);
+});
+visor.addEventListener("click", e => {
+  if (e.target.closest(".visor-ant")) mostrarFoto(visorI - 1);
+  else if (e.target.closest(".visor-sig")) mostrarFoto(visorI + 1);
+  else if (e.target === visor || e.target.closest(".visor-cerrar")) cerrarVisor();
+});
+document.addEventListener("keydown", e => {
+  if (visor.hidden) return;
+  if (e.key === "Escape") cerrarVisor();
+  if (e.key === "ArrowLeft") mostrarFoto(visorI - 1);
+  if (e.key === "ArrowRight") mostrarFoto(visorI + 1);
+});
+// Deslizar con el dedo en el celular
+let toqueX = null;
+visor.addEventListener("touchstart", e => { toqueX = e.touches[0].clientX; }, { passive: true });
+visor.addEventListener("touchend", e => {
+  if (toqueX === null || visorFotos.length < 2) return;
+  const dx = e.changedTouches[0].clientX - toqueX;
+  if (Math.abs(dx) > 50) mostrarFoto(visorI + (dx < 0 ? 1 : -1));
+  toqueX = null;
 });
 
 filtros.innerHTML =categorias.map((c, i) =>

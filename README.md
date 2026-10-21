@@ -40,4 +40,4 @@ En el repo: **Settings → Pages → Branch: main / root → Save**. El sitio qu
 
 ## Al hacer cambios en CSS o JS
 
-Sube el número de versión en `index.html` (`estilos.css?v=3` y `main.js?v=3` → `?v=4`) para que los celulares descarguen la versión nueva y no usen la guardada.
+Sube el número de versión en `index.html` (`estilos.css?v=4` y `main.js?v=4` → `?v=5`) para que los celulares descarguen la versión nueva y no usen la guardada.
